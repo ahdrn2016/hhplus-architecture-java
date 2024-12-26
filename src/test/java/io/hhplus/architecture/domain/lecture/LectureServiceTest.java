@@ -11,6 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ActiveProfiles("test")
@@ -22,6 +23,9 @@ class LectureServiceTest {
 
     @Autowired
     private LectureRepository lectureRepository;
+
+    @Autowired
+    private LectureEnrollRepository lectureEnrollRepository;
 
     @Test
     void 동시에_40명이_특강_신청_시_30명만_특강_신청에_성공한다() throws InterruptedException {
@@ -58,6 +62,20 @@ class LectureServiceTest {
         // then
         assertEquals(30, successCount.get());
         assertEquals(10, failCount.get());
+    }
+
+    @Test
+    void 유저는_이미_신청한_동일한_특강을_신청_할_수_없다() {
+        // given
+        Long userId = 1L;
+        Lecture lecture = createLecture("특강1", "짱구", LocalDateTime.of(2024, 12, 31, 10, 0), LocalDateTime.of(2024, 12, 28, 13, 0), 30);
+        lectureRepository.save(lecture);
+        lectureEnrollRepository.save(LectureEnroll.of(userId, lecture.getId(), lecture));
+
+        // when // then
+        assertThatThrownBy(() -> lectureService.enroll(userId, lecture.getId()))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이미 신청한 특강입니다.");
     }
 
     private Lecture createLecture(String title, String instructor, LocalDateTime startDtm, LocalDateTime endDtm, int capacity) {

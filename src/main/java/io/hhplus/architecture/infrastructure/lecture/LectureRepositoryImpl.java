@@ -28,4 +28,9 @@ public class LectureRepositoryImpl implements LectureRepository {
         return lectureJpaRepository.save(lecture);
     }
 
+    @Override
+    public List<Lecture> saveAll(List<Lecture> lectures) {
+        return lectureJpaRepository.saveAll(lectures);
+    }
+
 }

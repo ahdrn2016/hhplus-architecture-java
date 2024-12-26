@@ -10,4 +10,5 @@ public interface LectureRepository {
 
     Lecture save(Lecture lecture);
 
+    List<Lecture> saveAll(List<Lecture> lectures);
 }

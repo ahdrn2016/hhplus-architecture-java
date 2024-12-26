@@ -30,4 +30,9 @@ public class LectureEnrollRepositoryImpl implements LectureEnrollRepository {
         return lectureEnrollJpaRepository.save(lectureEnroll);
     }
 
+    @Override
+    public List<LectureEnroll> saveAll(List<LectureEnroll> enrolledLectures) {
+        return lectureEnrollJpaRepository.saveAll(enrolledLectures);
+    }
+
 }

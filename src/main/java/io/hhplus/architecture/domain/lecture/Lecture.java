@@ -36,4 +36,8 @@ public class Lecture {
     public void reduceCapacity() {
         this.capacity = this.capacity - 1;
     }
+
+    public boolean isLectureFull() {
+        return this.capacity <= 0;
+    }
 }

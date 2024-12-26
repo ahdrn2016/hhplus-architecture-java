@@ -20,7 +20,12 @@ public class LectureService {
 
     @Transactional
     public LectureEnroll enroll(Long userId, Long lectureId) {
-        Lecture lecture = lectureRepository.findById(lectureId);
+        Lecture lecture = lectureRepository.findByIdWithLock(lectureId);
+
+        // 정원 체크
+        if (lecture.isLectureFull()) {
+            throw new IllegalArgumentException("특강 정원을 초과하여 신청할 수 없습니다.");
+        }
 
         // 특강 시간 중복 체크
         List<LectureEnroll> duplicateLectures = lectureEnrollRepository.findDuplicateLectures(lecture.getStartDtm(), lecture.getEndDtm());

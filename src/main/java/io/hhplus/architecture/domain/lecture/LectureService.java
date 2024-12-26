@@ -24,7 +24,7 @@ public class LectureService {
 
         // 특강 시간 중복 체크
         List<LectureEnroll> duplicateLectures = lectureEnrollRepository.findDuplicateLectures(lecture.getStartDtm(), lecture.getEndDtm());
-        if (duplicateLectures.isEmpty()) {
+        if (!duplicateLectures.isEmpty()) {
             throw new IllegalArgumentException("이미 신청한 특강과 시간이 중복됩니다.");
         }
 
@@ -35,8 +35,8 @@ public class LectureService {
         return lectureEnrollRepository.save(LectureEnroll.of(userId, lectureId, lecture));
     }
 
-    public List<Lecture> enrolled(Long userId) {
-        return lectureEnrollRepository.findEnrolledLecturesByUserId(userId);
+    public List<LectureEnroll> enrolled(Long userId) {
+        return lectureEnrollRepository.findByUserId(userId);
     }
 
 }

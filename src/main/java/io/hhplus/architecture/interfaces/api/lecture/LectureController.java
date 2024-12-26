@@ -36,7 +36,7 @@ public class LectureController {
      * 특강 신청 API
      */
     @PostMapping("/enroll")
-    public LectureEnrollResponse enroll(LectureEnrollRequest request) {
+    public LectureEnrollResponse enroll(@RequestBody LectureEnrollRequest request) {
         LectureEnroll enrolledLecture = lectureService.enroll(request.getUserId(), request.getLectureId());
         return LectureEnrollResponse.of(enrolledLecture);
     }
@@ -45,11 +45,11 @@ public class LectureController {
      * 특강 신청 여부 조회 API
      */
     @GetMapping("/enrolled?{userId}")
-    public List<LectureResponse> enrolled(@PathVariable Long userId) {
-        List<Lecture> enrolledLectures = lectureService.enrolled(userId);
+    public List<LectureEnrollResponse> enrolled(@PathVariable Long userId) {
+        List<LectureEnroll> enrolledLectures = lectureService.enrolled(userId);
 
         return enrolledLectures.stream()
-                .map(LectureResponse::of)
+                .map(LectureEnrollResponse::of)
                 .collect(Collectors.toList());
     }
 

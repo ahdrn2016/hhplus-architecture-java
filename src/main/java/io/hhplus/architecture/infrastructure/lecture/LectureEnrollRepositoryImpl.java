@@ -16,8 +16,8 @@ public class LectureEnrollRepositoryImpl implements LectureEnrollRepository {
     private final LectureEnrollJpaRepository lectureEnrollJpaRepository;
 
     @Override
-    public List<Lecture> findEnrolledLecturesByUserId(Long userId) {
-        return lectureEnrollJpaRepository.findEnrolledLecturesByUserId(userId);
+    public List<LectureEnroll> findByUserId(Long userId) {
+        return lectureEnrollJpaRepository.findByUserId(userId);
     }
 
     @Override

@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface LectureEnrollRepository {
 
-    List<Lecture> findEnrolledLecturesByUserId(Long userId);
+    List<LectureEnroll> findByUserId(Long userId);
 
     List<LectureEnroll> findDuplicateLectures(LocalDateTime startDtm, LocalDateTime endDtm);
 

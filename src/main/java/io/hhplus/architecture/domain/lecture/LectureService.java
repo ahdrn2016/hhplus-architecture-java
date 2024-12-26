@@ -27,6 +27,12 @@ public class LectureService {
             throw new IllegalArgumentException("특강 정원을 초과하여 신청할 수 없습니다.");
         }
 
+        // 특강 중복 신청 체크
+        LectureEnroll enrolledLecture = lectureEnrollRepository.findByUserIdAndLectureId(userId, lectureId);
+        if (enrolledLecture != null) {
+            throw new IllegalArgumentException("이미 신청한 특강입니다.");
+        }
+
         // 특강 시간 중복 체크
         List<LectureEnroll> duplicateLectures = lectureEnrollRepository.findDuplicateLectures(lecture.getStartDtm(), lecture.getEndDtm());
         if (!duplicateLectures.isEmpty()) {

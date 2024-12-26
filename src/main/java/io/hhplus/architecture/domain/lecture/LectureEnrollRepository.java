@@ -13,4 +13,5 @@ public interface LectureEnrollRepository {
 
     List<LectureEnroll> saveAll(List<LectureEnroll> enrolledLectures);
 
+    LectureEnroll findByUserIdAndLectureId(Long userId, Long lectureId);
 }

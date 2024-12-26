@@ -21,4 +21,6 @@ public interface LectureEnrollJpaRepository extends JpaRepository<LectureEnroll,
      */
     @Query("select le from LectureEnroll le where :startDtm between le.startDtm and le.endDtm or :endDtm between le.startDtm and le.endDtm")
     List<LectureEnroll> findDuplicateLectures(@Param("startDtm") LocalDateTime startDtm, @Param("endDtm") LocalDateTime endDtm);
+
+    LectureEnroll findByUserIdAndLectureId(Long userId, Long lectureId);
 }

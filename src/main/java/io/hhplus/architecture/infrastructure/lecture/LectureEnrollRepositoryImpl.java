@@ -35,4 +35,9 @@ public class LectureEnrollRepositoryImpl implements LectureEnrollRepository {
         return lectureEnrollJpaRepository.saveAll(enrolledLectures);
     }
 
+    @Override
+    public LectureEnroll findByUserIdAndLectureId(Long userId, Long lectureId) {
+        return lectureEnrollJpaRepository.findByUserIdAndLectureId(userId, lectureId);
+    }
+
 }

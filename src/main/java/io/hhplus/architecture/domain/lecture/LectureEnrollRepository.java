@@ -10,4 +10,7 @@ public interface LectureEnrollRepository {
     List<LectureEnroll> findDuplicateLectures(LocalDateTime startDtm, LocalDateTime endDtm);
 
     LectureEnroll save(LectureEnroll lectureEnroll);
+
+    List<LectureEnroll> saveAll(List<LectureEnroll> enrolledLectures);
+
 }

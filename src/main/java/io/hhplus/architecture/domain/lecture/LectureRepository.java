@@ -6,7 +6,7 @@ public interface LectureRepository {
 
     List<Lecture> findAfterNow();
 
-    Lecture findById(Long lectureId);
+    Lecture findByIdWithLock(Long lectureId);
 
     Lecture save(Lecture lecture);
 

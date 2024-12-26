@@ -1,4 +1,4 @@
-package java.hhplus.architecture.domain.lecture;
+package io.hhplus.architecture.domain.lecture;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

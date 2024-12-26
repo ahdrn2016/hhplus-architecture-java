@@ -1,8 +1,8 @@
-package java.hhplus.architecture.interfaces.api.lecture.dto;
+package io.hhplus.architecture.interfaces.api.lecture.dto;
 
 import lombok.Builder;
 
-import java.hhplus.architecture.domain.lecture.Lecture;
+import io.hhplus.architecture.domain.lecture.Lecture;
 import java.time.LocalDateTime;
 
 public class LectureResponse {

@@ -1,10 +1,11 @@
-package java.hhplus.architecture.infrastructure.lecture;
+package io.hhplus.architecture.infrastructure.lecture;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import java.hhplus.architecture.domain.lecture.Lecture;
-import java.hhplus.architecture.domain.lecture.LectureEnroll;
+import io.hhplus.architecture.domain.lecture.LectureEnroll;
+import org.springframework.data.repository.query.Param;
+
 import java.time.LocalDateTime;
 import java.util.List;
 

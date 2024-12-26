@@ -1,4 +1,4 @@
-package java.hhplus.architecture.interfaces.api.lecture.dto;
+package io.hhplus.architecture.interfaces.api.lecture.dto;
 
 import lombok.Getter;
 

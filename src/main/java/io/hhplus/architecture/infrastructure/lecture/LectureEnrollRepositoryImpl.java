@@ -1,11 +1,11 @@
-package java.hhplus.architecture.infrastructure.lecture;
+package io.hhplus.architecture.infrastructure.lecture;
 
+import io.hhplus.architecture.domain.lecture.Lecture;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.hhplus.architecture.domain.lecture.Lecture;
-import java.hhplus.architecture.domain.lecture.LectureEnroll;
-import java.hhplus.architecture.domain.lecture.LectureEnrollRepository;
+import io.hhplus.architecture.domain.lecture.LectureEnroll;
+import io.hhplus.architecture.domain.lecture.LectureEnrollRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 

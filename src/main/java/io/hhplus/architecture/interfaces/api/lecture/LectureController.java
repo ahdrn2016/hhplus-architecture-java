@@ -1,14 +1,15 @@
-package java.hhplus.architecture.interfaces.api.lecture;
+package io.hhplus.architecture.interfaces.api.lecture;
 
+import io.hhplus.architecture.interfaces.api.lecture.dto.LectureEnrollResponse;
+import io.hhplus.architecture.interfaces.api.lecture.dto.LectureResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.hhplus.architecture.domain.lecture.Lecture;
-import java.hhplus.architecture.domain.lecture.LectureEnroll;
-import java.hhplus.architecture.domain.lecture.LectureService;
-import java.hhplus.architecture.interfaces.api.lecture.dto.LectureEnrollRequest;
-import java.hhplus.architecture.interfaces.api.lecture.dto.LectureEnrollResponse;
-import java.hhplus.architecture.interfaces.api.lecture.dto.LectureResponse;
+import io.hhplus.architecture.domain.lecture.Lecture;
+import io.hhplus.architecture.domain.lecture.LectureEnroll;
+import io.hhplus.architecture.domain.lecture.LectureService;
+import io.hhplus.architecture.interfaces.api.lecture.dto.LectureEnrollRequest;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

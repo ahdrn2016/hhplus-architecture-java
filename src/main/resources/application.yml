@@ -1,2 +1,12 @@
 spring:
-  application: name=hhplus-architecture-java
+  application:
+    name: hhplus-architecture-java
+  datasource:
+    url: jdbc:mysql://localhost:3306/hhplus
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none  # 운영 환경에서는 none 또는 validate로 설정
+    show-sql: false  # 운영 환경에서는 쿼리 로깅을 비활성화하는 것이 좋음

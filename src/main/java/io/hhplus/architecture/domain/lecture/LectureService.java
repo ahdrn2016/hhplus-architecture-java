@@ -1,4 +1,4 @@
-package java.hhplus.architecture.domain.lecture;
+package io.hhplus.architecture.domain.lecture;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package java.hhplus.architecture.domain.lecture;
+package io.hhplus.architecture.domain.lecture;
 
 import java.time.LocalDateTime;
 import java.util.List;

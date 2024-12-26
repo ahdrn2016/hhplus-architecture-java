@@ -27,6 +27,11 @@ public class LectureService {
         if (duplicateLectures.isEmpty()) {
             throw new IllegalArgumentException("이미 신청한 특강과 시간이 중복됩니다.");
         }
+
+        // 정원 차감
+        lecture.reduceCapacity();
+        lectureRepository.save(lecture);
+
         return lectureEnrollRepository.save(LectureEnroll.of(userId, lectureId, lecture));
     }
 

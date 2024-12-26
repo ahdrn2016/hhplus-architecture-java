@@ -23,4 +23,9 @@ public class LectureRepositoryImpl implements LectureRepository {
         return lectureJpaRepository.findById(lectureId).orElse(null);
     }
 
+    @Override
+    public Lecture save(Lecture lecture) {
+        return lectureJpaRepository.save(lecture);
+    }
+
 }

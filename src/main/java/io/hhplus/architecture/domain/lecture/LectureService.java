@@ -1,5 +1,7 @@
 package io.hhplus.architecture.domain.lecture;
 
+import io.hhplus.architecture.support.exception.CustomException;
+import io.hhplus.architecture.support.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,19 +26,19 @@ public class LectureService {
 
         // 정원 체크
         if (lecture.isLectureFull()) {
-            throw new IllegalArgumentException("특강 정원을 초과하여 신청할 수 없습니다.");
+            throw new CustomException(ErrorCode.LECTURE_FULL);
         }
 
         // 특강 중복 신청 체크
         LectureEnroll enrolledLecture = lectureEnrollRepository.findByUserIdAndLectureId(userId, lectureId);
         if (enrolledLecture != null) {
-            throw new IllegalArgumentException("이미 신청한 특강입니다.");
+            throw new CustomException(ErrorCode.ENROLLED_LECTURE);
         }
 
         // 특강 시간 중복 체크
         List<LectureEnroll> duplicateLectures = lectureEnrollRepository.findDuplicateLectures(lecture.getStartDtm(), lecture.getEndDtm());
         if (!duplicateLectures.isEmpty()) {
-            throw new IllegalArgumentException("이미 신청한 특강과 시간이 중복됩니다.");
+            throw new CustomException(ErrorCode.DUPLICATE_LECTURE);
         }
 
         // 정원 차감

@@ -1,5 +1,7 @@
 package io.hhplus.architecture.domain.lecture;
 
+import io.hhplus.architecture.support.exception.CustomException;
+import io.hhplus.architecture.support.exception.ErrorCode;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -74,8 +76,8 @@ class LectureServiceTest {
 
         // when // then
         assertThatThrownBy(() -> lectureService.enroll(userId, lecture.getId()))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("이미 신청한 특강입니다.");
+                .isInstanceOf(CustomException.class)
+                .hasMessage(ErrorCode.ENROLLED_LECTURE.getMessage());
     }
 
     private Lecture createLecture(String title, String instructor, LocalDateTime startDtm, LocalDateTime endDtm, int capacity) {

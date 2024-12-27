@@ -6,25 +6,25 @@
 - name: 사용자 이름 
  
 ### lecture 테이블
-- id: 강의 고유 식별자 (기본키)
-- title: 강의 제목
+- id: 특강 고유 식별자 (기본키)
+- title: 특강 제목
 - instructor: 강사 이름
-- start_dtm: 강의 시작 일시
-- end_dtm: 강의 종료 일시
-- capacity: 강의 수용 인원
+- start_dtm: 특강 시작 일시
+- end_dtm: 특강 종료 일시
+- capacity: 특강 수용 인원
 
 ### lecture_enroll 테이블
 - id: 수강 신청 고유 식별자 (기본키)
 - user_id: 수강하는 사용자 식별자 (외래키로 user 테이블의 id를 참조)
-- lecture_id: 수강하는 강의 식별자 (외래키로 lecture 테이블의 id를 참조)
-- title: 수강 신청한 강의 제목
-- instructor: 수강 신청한 강의 강사 이름
-- start_dtm: 수강 신청한 강의 시작 일시
-- end_dtm: 수강 신청한 강의 종료 일시
+- lecture_id: 수강하는 특강 식별자 (외래키로 lecture 테이블의 id를 참조)
+- title: 수강 신청한 특강 제목
+- instructor: 수강 신청한 특강 강사 이름
+- start_dtm: 수강 신청한 특강 시작 일시
+- end_dtm: 수강 신청한 특강 종료 일시
 
 ### 관계 설명
-user와 lecture_enroll: 사용자(user)는 여러 개의 강의(lecture)에 수강 신청할 수 있으므로 일대다 관계입니다.
-lecture와 lecture_enroll: 강의(lecture)는 여러 사용자가 수강할 수 있으므로 역시 일대다 관계입니다.
+user와 lecture_enroll: 사용자(user)는 여러 개의 특강(lecture)에 수강 신청할 수 있으므로 일대다 관계입니다.
+lecture와 lecture_enroll: 특강(lecture)는 여러 사용자가 수강할 수 있으므로 역시 일대다 관계입니다.
 
 ---
 ## 참고
